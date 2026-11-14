@@ -1,69 +1,91 @@
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DADY SHOP - Game Top Up</title>
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DADY SHOP</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#f1f5ff;padding-bottom:90px}
 .head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
 .logo{font-weight:900;color:#0f52bd;font-size:19px}
-.logo small{display:block;font-size:8px;letter-spacing:3px;color:#666}
-.loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-weight:700;font-size:13px}
-.secHead{font-size:22px;font-weight:900;padding:14px 12px;display:flex;gap:8px;align-items:center}
-.secHead span{color:#0f52bd}.bar{width:5px;height:25px;background:#0f52bd;border-radius:5px}
+.loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-weight:700}
+.top{padding:14px 12px;font-size:22px;font-weight:900}
+.top span{color:#0f52bd}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;border:2px solid transparent}
-.card:active{border-color:#0f52bd}
-.card img{width:100%;height:150px;object-fit:cover;display:block;background:#ddd}
-.card p{text-align:center;padding:12px;font-weight:700;font-size:14px}
+.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;text-align:center}
+.card div{height:130px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff}
+.card p{padding:12px;font-weight:700}
 .box{background:#fff;border-radius:15px;padding:15px;margin:12px;box-shadow:0 2px 10px #0001}
-.secTitle{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900;margin-bottom:15px}
-.num{background:#0f52bd;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pkgGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pkg{border:1px solid #ddd;border-radius:10px;padding:13px 10px;display:flex;align-items:center;gap:8px;cursor:pointer;background:#fff}
-.pkg.sel{border:2px solid #0f52bd;background:#eaf1ff}
+.pkg{border:1px solid #ddd;border-radius:10px;padding:13px 10px;display:flex;justify-content:space-between;cursor:pointer;background:#fff}
 .pkg b{font-size:13px}
-.pkg span{margin-left:auto;color:#ff6a00;font-weight:900;font-size:13px}
-.input{width:100%;padding:13px;border:1.5px solid #b9d2ff;border-radius:10px;margin-top:10px;outline:none}
+.pkg span{color:#ff6a00;font-weight:900;font-size:13px}
+.pkg.sel{border:2px solid #0f52bd;background:#eaf1ff}
+.input{width:100%;padding:13px;border:1.5px solid #b9d2ff;border-radius:10px;margin-top:10px}
 .btnBlue{width:100%;background:#0f52bd;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;margin-top:12px}
-.googleBtn{width:100%;background:#fff;color:#222;border:1px solid #ddd;padding:13px;border-radius:10px;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;cursor:pointer}
-.payGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.payOpt{border:2px solid #ddd;border-radius:12px;overflow:hidden;cursor:pointer;text-align:center}
-.payOpt.sel{border-color:#0f52bd}
-.payOpt div{height:90px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px}
-.payOpt p{text-align:left;padding:8px;background:#eee;font-size:13px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;z-index:99;font-size:12px;text-align:center}
-.back{background:#eee;border:none;padding:8px 16px;border-radius:20px;font-weight:700}
+.googleBtn{width:100%;background:#fff;border:1px solid #ddd;padding:13px;border-radius:10px;font-weight:700;margin-top:12px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;font-size:12px;text-align:center}
 #loginModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
 #loginModal.show{display:flex}
 .loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:22px;text-align:center}
+.hide{display:none}
 </style></head><body>
 
-<div class="head"><div class="logo">DADY SHOP<small>TOP UP YOUR LIFE</small></div><button class="loginBtn" id="topLoginBtn" onclick="openLogin()">Login</button></div>
+<div class="head"><div class="logo">DADY SHOP</div><button class="loginBtn" id="topBtn" onclick="openLogin()">Login</button></div>
 
-<!-- HOME - এখানেই সব কার্ড দেখা যাবে -->
-<div id="homePage">
-<div class="secHead"><div class="bar"></div>GAMES <span>TOPUP</span></div>
+<!-- HOME -->
+<div id="home">
+<div class="top">GAMES <span>TOPUP</span></div>
 <div class="grid">
-<div class="card" onclick="openCat('fflike')"><img src="IMG-20260920-WA9575.jpg" onerror="this.src='https://via.placeholder.com/300x150/ff6a00/fff?text=FF+LIKE'"><p>FF LIKE</p></div>
-<div class="card" onclick="openCat('uid')"><img src="IMG-20260920-WA1879.jpg" onerror="this.src='https://via.placeholder.com/300x150/0f52bd/fff?text=Uid+TopUp'"><p>Uid TopUp (BD)</p></div>
-<div class="card" onclick="openCat('weeklylite')"><img src="IMG-20260920-WA8156.jpg" onerror="this.src='https://via.placeholder.com/300x150/00c853/fff?text=Weekly+Lite'"><p>Weekly Lite (BD Server)</p></div>
-<div class="card" onclick="openCat('weeklymonthly')"><img src="IMG-20260920-WA5260.jpg" onerror="this.src='https://via.placeholder.com/300x150/9c27b0/fff?text=Weekly+Monthly'"><p>Weekly/Monthly Offer</p></div>
-<div class="card" onclick="openCat('level')"><img src="IMG-20260920-WA1879.jpg" onerror="this.src='https://via.placeholder.com/300x150/ff2d00/fff?text=Level+Up'"><p>New Level Up Pass</p></div>
+<div class="card" onclick="showCat('fflike')"><div style="background:#ff6a00">FF LIKE</div><p>FF LIKE</p></div>
+<div class="card" onclick="showCat('uid')"><div style="background:#0f52bd">Uid TopUp</div><p>Uid TopUp (BD)</p></div>
+<div class="card" onclick="showCat('weeklylite')"><div style="background:#00c853">Weekly Lite</div><p>Weekly Lite (BD Server)</p></div>
+<div class="card" onclick="showCat('weekly')"><div style="background:#9c27b0">Weekly / Monthly</div><p>Weekly/Monthly Offer</p></div>
+<div class="card" onclick="showCat('level')"><div style="background:#ff2d00">Level Up</div><p>New Level Up Pass</p></div>
 </div>
-<p style="text-align:center;color:#666;font-size:13px;margin:14px">👆 যেকোনো একটায় ক্লিক করো, নিচে অফার দেখাবে 👇</p>
+<p style="text-align:center;color:#666;font-size:13px;margin:14px">👆 যেকোনো একটায় ক্লিক করো 👇</p>
 </div>
 
-<!-- DETAIL - ক্লিক করলে এখানে অফার আসবে -->
-<div id="detailPage">
-<div class="box" id="detailBox" style="display:none">
-<button class="back" onclick="showHome()">← Back</button>
-<h2 id="dTitle" style="margin:12px 0">Uid TopUp (BD)</h2>
-<p style="color:green;font-weight:700">⚡ ২ সেকেন্ডে টপআপ - DADY SHOP</p>
+<!-- UID TOPUP - এটাই ডিফল্ট দেখাবে, তাই খালি লাগবে না -->
+<div id="uid" class="box">
+<h2>🔥 Uid TopUp (BD) - সব অফার</h2><p style="color:green;font-weight:700;margin:6px 0">⚡ ২ সেকেন্ডে টপআপ</p>
+<div class="pkgGrid">
+<div class="pkg" onclick="pick(this,'Weekly','155')"><b>Weekly</b><span>155 TK</span></div>
+<div class="pkg" onclick="pick(this,'Monthly','765')"><b>Monthly</b><span>765 TK</span></div>
+<div class="pkg" onclick="pick(this,'25 Diamond','20')"><b>25 Diamond</b><span>20 TK</span></div>
+<div class="pkg" onclick="pick(this,'50 Diamond','35')"><b>50 Diamond</b><span>35 TK</span></div>
+<div class="pkg" onclick="pick(this,'115 Diamond','79')"><b>115 Diamond</b><span>79 TK</span></div>
+<div class="pkg" onclick="pick(this,'240 Diamond','156')"><b>240 Diamond</b><span>156 TK</span></div>
+<div class="pkg" onclick="pick(this,'355 Diamond','237')"><b>355 Diamond</b><span>237 TK</span></div>
+<div class="pkg" onclick="pick(this,'505 Diamond','336')"><b>505 Diamond</b><span>336 TK</span></div>
+<div class="pkg" onclick="pick(this,'610 Diamond','395')"><b>610 Diamond</b><span>395 TK</span></div>
+<div class="pkg" onclick="pick(this,'850 Diamond','558')"><b>850 Diamond</b><span>558 TK</span></div>
+<div class="pkg" onclick="pick(this,'1090 Diamond','716')"><b>1090 Diamond</b><span>716 TK</span></div>
+<div class="pkg" onclick="pick(this,'1240 Diamond','795')"><b>1240 Diamond</b><span>795 TK</span></div>
+<div class="pkg" onclick="pick(this,'2530 Diamond','1590')"><b>2530 Diamond</b><span>1590 TK</span></div>
+<div class="pkg" onclick="pick(this,'5060 Diamond','3180')"><b>5060 Diamond</b><span>3180 TK</span></div>
+<div class="pkg" onclick="pick(this,'7590 Diamond','4800')"><b>7590 Diamond</b><span>4800 TK</span></div>
+<div class="pkg" onclick="pick(this,'10120 Diamond','6400')"><b>10120 Diamond</b><span>6400 TK</span></div>
+</div>
+</div>
 
-<div style="margin-top:16px"><div class="secTitle"><span class="num">1</span> Select Recharge</div><div class="pkgGrid" id="pkgList"></div></div>
+<!-- FF LIKE -->
+<div id="fflike" class="box hide">
+<h2>❤️ FF LIKE - সব অফার</h2>
+<div class="pkgGrid" style="margin-top:12px">
+<div class="pkg" onclick="pick(this,'FF Like 100','20')"><b>FF Like 100</b><span>20 TK</span></div>
+<div class="pkg" onclick="pick(this,'FF Like 200 Daily','30')"><b>FF Like 200 Daily</b><span>30 TK</span></div>
+<div class="pkg" onclick="pick(this,'FF Like 500','65')"><b>FF Like 500</b><span>65 TK</span></div>
+<div class="pkg" onclick="pick(this,'FF Like 1000','120')"><b>FF Like 1000</b><span>120 TK</span></div>
+</div>
+</div>
 
-<div style="margin-top:16px"><div class="secTitle"><span class="num">2</span> Account Info</div>
-<p style="font-weight:700">এখানে গেমের আইডি কোড দিন</p>
-<input id="uid" class="input" placeholder="এখানে গেমের আইডি কোড দিন">
-<button class="btnBlue" onclick="checkUid()">আপনার গেম আইডির নাম চেক করুন</button>
-<p id="uidMsg" style="font-size:13px;color:green;margin-top:8px;font-weight:700"></p></div>
+<!-- WEEKLY LITE -->
+<div id="weeklylite" class="box hide">
+<h2>⚡ Weekly Lite - সব অফার</h2>
+<div class="pkgGrid" style="margin-top:12px">
+<div class="pkg" onclick="pick(this,'Weekly Lite','150')"><b>Weekly Lite</b><span>150 TK</span></div>
+<div class="pkg" onclick="pick(this,'Weekly Lite 2x','300')"><b>Weekly Lite 2x</b><span>300 TK</span></div>
+<div class="pkg" onclick="pick(this,'Weekly Lite 3x','450')"><b>Weekly Lite 3x</b><span>450 TK</span></div>
+</div>
+</div>
 
-<div style="margin-top:16px"><div class="secTitle"><span class="num">3</span> Select one option</div
+<!-- WEEKLY MONTHLY -->
+<div id="weekly" class="box hide">
+<h2>
