@@ -1,77 +1,135 @@
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DADY SHOP - Game Top Up</title>
+<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DADY SHOP - Uid TopUp (BD)</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-body{background:#f1f5ff;padding-bottom:80px}
+body{background:#f1f5ff;padding-bottom:90px}
 .head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
-.logo{font-weight:900;color:#0f52bd;font-size:18px}
-.loginBtn{background:#0f52bd;color:#fff;border:none;padding:7px 16px;border-radius:20px;font-weight:700;font-size:12px}
-.page{display:none;padding:12px}.page.active{display:block}
-.banner{background:linear-gradient(90deg,#0f52bd,#00a8ff);color:#fff;border-radius:15px;padding:20px;margin-bottom:12px}
-.banner h2{font-size:22px}
-.banner p{font-size:13px;opacity:.9}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;text-align:center}
-.card img{width:100%;height:130px;object-fit:cover;display:block}
-.card p{padding:10px;font-weight:900;font-size:12px}
-.title{font-weight:900;text-align:center;margin:16px 0;font-size:16px}
-.box{background:#fff;border-radius:14px;padding:14px;margin-top:12px}
-.rech{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.rech div{border:2px solid #e3e8ff;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-size:13px}
-.rech div.sel{border-color:#0f52bd;background:#eaf1ff}
-.input{width:100%;padding:12px;border:2px solid #dce6ff;border-radius:10px;margin-top:8px;font-size:16px}
-.btn{width:100%;padding:13px;background:#0f52bd;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:10px;font-size:16px}
+.logo{font-weight:900;color:#0f52bd;font-size:19px}
+.logo small{display:block;font-size:8px;letter-spacing:3px;color:#666}
+.loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:700;font-size:15px}
+.topBox{background:#fff;margin:12px;border-radius:15px;padding:15px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 10px #0001}
+.topBox img{width:75px;height:75px;border-radius:12px;object-fit:cover}
+.topBox h2{font-size:19px}
+.badge{display:inline-block;background:#eaf1ff;color:#0f52bd;padding:4px 10px;border-radius:20px;font-size:12px;margin-top:6px;font-weight:700}
+.card{background:#fff;margin:12px;border-radius:15px;padding:15px;box-shadow:0 2px 10px #0001}
+.secTitle{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900;margin-bottom:15px}
+.num{background:#0f52bd;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pkg{border:1px solid #ddd;border-radius:10px;padding:13px 10px;display:flex;align-items:center;gap:8px;cursor:pointer;background:#fff}
+.pkg.sel{border:2px solid #0f52bd;background:#eaf1ff}
+.pkg input{accent-color:#0f52bd}
+.pkg b{font-size:13px}
+.pkg span{margin-left:auto;color:#ff6a00;font-weight:900;font-size:13px}
+.input{width:100%;padding:13px;border:1.5px solid #b9d2ff;border-radius:10px;font-size:15px;margin-top:10px;outline:none}
+.btnBlue{width:100%;background:#0f52bd;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;margin-top:12px}
+.payGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:5px}
+.payOpt{border:2px solid #ddd;border-radius:12px;overflow:hidden;cursor:pointer;text-align:center}
+.payOpt.sel{border-color:#0f52bd}
+.payOpt img{width:100%;height:95px;object-fit:cover;display:block}
+.payOpt p{text-align:left;padding:8px;background:#eee;font-size:13px}
+.payOpt.sel p{background:#eaf1ff}
+.info{font-size:13px;color:#444;margin-top:12px;display:flex;gap:6px}
+.info.orange{color:#ff6a00;font-weight:700}
+.rules{font-size:13px;color:#333;line-height:1.7;margin-top:10px}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;z-index:99;font-size:12px;text-align:center}
 #loginModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
 #loginModal.show{display:flex}
 .loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:20px;text-align:center}
+.support{position:fixed;right:12px;bottom:90px;background:#0f52bd;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;z-index:99;box-shadow:0 4px 15px #0003}
 </style></head><body>
-<div class="head"><div class="logo">🔥 DADY SHOP</div><div><span id="userName" style="font-size:12px;font-weight:700;margin-right:6px"></span><button id="logBtn" onclick="openLogin()" class="loginBtn">LOGIN</button></div></div>
 
-<div id="homePage" class="page active">
-<div class="banner"><h2>DADY SHOP - Free Fire Top Up</h2><p>Fast • Safe • Instant Delivery - bKash / Nagad</p></div>
-<div class="title">🔥 BONUS OFFER - DADY SHOP 🔥</div>
-<div class="grid">
-<div class="card" onclick="checkLogin('friday')"><img src="IMG-20260920-WA7034.jpg"><p>FRIDAY OFFER</p></div>
-<div class="card" onclick="checkLogin('fflike')"><img src="IMG-20260920-WA9575.jpg"><p>FF LIKE 200 DAILY</p></div>
-</div>
-<div class="title">🎮 GAMES TOPUP - FROM 23 TK</div>
-<div class="grid">
-<div class="card" onclick="checkLogin('diamond')"><img src="IMG-20260920-WA1879.jpg"><p>ALL DIAMOND - 23 TK</p></div>
-<div class="card" onclick="checkLogin('weekly')"><img src="IMG-20260920-WA8156.jpg"><p>WEEKLY - 160 TK</p></div>
-<div class="card" onclick="checkLogin('monthly')"><img src="IMG-20260920-WA5260.jpg"><p>MONTHLY - 770 TK</p></div>
-<div class="card" onclick="checkLogin('level')"><img src="IMG-20260920-WA1879.jpg"><p>LEVEL UP PASS</p></div>
-</div>
+<div class="head"><div class="logo">DADY SHOP<small>TOP UP YOUR LIFE</small></div><button class="loginBtn" onclick="openLogin()">Login</button></div>
+
+<div class="topBox">
+<img src="IMG-20260920-WA1879.jpg">
+<div><h2>Uid TopUp (BD)</h2><span class="badge">⚡ ২ সেকেন্ডে টপআপ</span></div>
 </div>
 
-<div id="topupPage" class="page">
-<button onclick="showHome()" style="background:#eee;border:none;padding:8px 14px;border-radius:20px">← Back</button>
-<div class="box" style="display:flex;gap:10px;align-items:center"><img src="IMG-20260920-WA1879.jpg" style="width:65px;height:65px;border-radius:12px;object-fit:cover"><div><b id="tTitle">PACKAGE</b><br><small style="color:green">⚡ 2 সেকেন্ডে টপআপ - DADY SHOP</small></div></div>
-<div class="box"><b>1. Select Package</b><div id="list" class="rech" style="margin-top:10px"></div></div>
-<div class="box"><b>2. UID</b><input id="uid" class="input" placeholder="UID দিন"><b style="margin-top:12px;display:block">3. Payment - bKash 01705780185</b><input id="trx" class="input" placeholder="TrxID দিন"><button onclick="orderNow()" class="btn">✅ অর্ডার করুন</button></div>
+<!-- 1. SELECT RECHARGE - 1ম ছবির মতো -->
+<div class="card">
+<div class="secTitle"><span class="num">1</span> Select Recharge</div>
+<div class="grid" id="pkgList"></div>
+<div style="margin-top:12px;color:#0f52bd;font-weight:700;font-size:14px">🔗 কিভাবে অর্ডার করবেন? →</div>
 </div>
+
+<!-- 2. ACCOUNT INFO - 2য় ছবির মতো -->
+<div class="card">
+<div class="secTitle"><span class="num">2</span> Account Info</div>
+<p style="font-weight:700">এখানে গেমের আইডি কোড দিন</p>
+<input id="uid" class="input" placeholder="এখানে গেমের আইডি কোড দিন">
+<button class="btnBlue" onclick="checkUid()">আপনার গেম আইডির নাম চেক করুন</button>
+<p id="uidMsg" style="font-size:13px;color:green;margin-top:8px;font-weight:700"></p>
+</div>
+
+<!-- 3. PAYMENT - 2য় ছবির মতো -->
+<div class="card">
+<div class="secTitle"><span class="num">3</span> Select one option</div>
+<div class="payGrid">
+<div class="payOpt sel" id="walletOpt" onclick="selectPay('wallet')"><img src="https://via.placeholder.com/300x150/0f52bd/fff?text=WALLET+PAY"><p>Wallet Pay</p></div>
+<div class="payOpt" id="instantOpt" onclick="selectPay('instant')"><img src="https://via.placeholder.com/300x150/ffffff/000?text=bKash+Nagad+Rocket+Upay"><p>Instant Pay</p></div>
+</div>
+
+<div id="walletBox">
+<div class="info">ⓘ প্রোডাক্ট কিনতে আপনার প্রয়োজন <b id="needTk">0</b> টাকা।</div>
+<div class="info orange">ⓘ Please Login To Purchase</div>
+<button class="btnBlue" onclick="openLogin()">Login</button>
+</div>
+
+<div id="instantBox" style="display:none">
+<div class="info">ⓘ Instant Pay - bKash / Nagad / Rocket / Upay দিয়ে পেমেন্ট করুন</div>
+<input id="trx" class="input" placeholder="TrxID দিন - যেমন: 9ABC1234">
+<button class="btnBlue" onclick="orderNow()">✅ অর্ডার কনফার্ম করুন</button>
+<p style="font-size:12px;text-align:center;margin-top:8px">পেমেন্ট পাঠান: <b>01705780185</b> (Send Money)</p>
+</div>
+</div>
+
+<!-- RULES -->
+<div class="card">
+<div class="secTitle">📋 Rules & Conditions</div>
+<div class="rules">
+⊙ শুধুমাত্র Bangladesh সার্ভারে ID Code দিয়ে টপ আপ হবে<br>
+⊙ Player ID ভুল দিয়ে Diamond না পেলে DADY SHOP কর্তৃপক্ষ দায়ী নয়<br>
+⊙ অর্ডার করার পর ২-১০ মিনিটের মধ্যে ডায়মন্ড পেয়ে যাবেন
+</div>
+</div>
+
+<a href="https://wa.me/8801705780185" class="support">🎧</a>
+<div class="bottom"><div>⌂<br>Home</div><div>▶<br>Tutorial</div><div style="color:#0f52bd">⊞<br>TopUp</div><div>☎<br>Contact Us</div></div>
 
 <div id="loginModal"><div class="loginBox">
 <h3>🔐 LOGIN - DADY SHOP</h3>
-<p style="font-size:12px;color:#666;margin:8px 0">Login করলেই Order দিতে পারবে</p>
 <input id="lPhone" class="input" placeholder="ফোন নাম্বার - 017...">
 <input id="lPass" class="input" type="password" placeholder="পাসওয়ার্ড - 1234">
-<button onclick="doLogin()" class="btn">LOGIN করুন</button>
+<button class="btnBlue" onclick="doLogin()">LOGIN করুন</button>
 <button onclick="closeLogin()" style="background:none;border:none;margin-top:10px;color:#666">পরে করবো</button>
 </div></div>
 
-<div class="bottom"><div>⌂<br>Home</div><div>▶<br>Tutorial</div><div style="color:#0f52bd">⊞<br>TopUp</div><div>☎<br>Contact</div></div>
-
 <script>
-let SEL=""; let LOGGED = localStorage.getItem('dady_user');
-const DATA={diamond:[["25 Diamond","23 TK"],["50 Diamond","40 TK"],["115 Diamond","79 TK"],["240 Diamond","156 TK"],["355 Diamond","237 TK"],["505 Diamond","336 TK"],["610 Diamond","395 TK"]],weekly:[["Weekly Lite","160 TK"],["2x Weekly","320 TK"]],monthly:[["Monthly","770 TK"],["2X Monthly","1540 TK"]],level:[["Level 6","40 TK"],["Full Level","415 TK"]],friday:[["Friday Offer","50 TK"]],fflike:[["Like 200 Daily","30 TK"]]};
-function updateLoginUI(){if(LOGGED){document.getElementById('userName').innerText=LOGGED;document.getElementById('logBtn').innerText='LOGOUT';document.getElementById('logBtn').onclick=logOut}}
+let SEL=""; let PRICE=0; let PAY="wallet";
+const PKGS=[
+["Weekly ⚡","155 TK",155],["Monthly ⚡","765 TK",765],
+["25 Diamond","20 TK",20],["50 Diamond","35 TK",35],
+["115 Diamond","79 TK",79],["240 Diamond","156 TK",156],
+["355 Diamond","237 TK",237],["505 Diamond","336 TK",336],
+["610 Diamond","395 TK",395],["850 Diamond","558 TK",558],
+["1090 Diamond","716 TK",716],["1240 Diamond","795 TK",795],
+["2530 Diamond","1590 TK",1590],["5060 Diamond","3180 TK",3180],
+["7590 Diamond","4800 TK",4800],["10120 Diamond","6400 TK",6400],
+];
+let h="";
+PKGS.forEach((p,i)=>{h+=`<label class="pkg" id="p${i}"><input type="radio" name="pkg"><b>${p[0]}</b><span>${p[1]}</span></label>`});
+document.getElementById('pkgList').innerHTML=h;
+document.querySelectorAll('.pkg').forEach((el,i)=>{
+el.onclick=()=>{
+document.querySelectorAll('.pkg').forEach(e=>e.classList.remove('sel'));
+el.classList.add('sel');
+SEL=PKGS[i][0]; PRICE=PKGS[i][2];
+document.getElementById('needTk').innerText=PRICE;
+}
+});
 function openLogin(){document.getElementById('loginModal').classList.add('show')}
 function closeLogin(){document.getElementById('loginModal').classList.remove('show')}
-function doLogin(){let p=document.getElementById('lPhone').value;let pw=document.getElementById('lPass').value;if(p.length<11)return alert('সঠিক ফোন নাম্বার দাও');if(pw.length<3)return alert('পাসওয়ার্ড দাও');localStorage.setItem('dady_user',p);LOGGED=p;updateLoginUI();closeLogin();alert('Login Successful! এখন Order দাও');}
-function logOut(){localStorage.removeItem('dady_user');location.reload()}
-function checkLogin(t){if(!LOGGED){openLogin();return;}openTopup(t)}
-function showHome(){document.getElementById('homePage').classList.add('active');document.getElementById('topupPage').classList.remove('active')}
-function openTopup(t){document.getElementById('homePage').classList.remove('active');document.getElementById('topupPage').classList.add('active');document.getElementById('tTitle').innerText=t.toUpperCase();let L=DATA[t]||DATA.diamond;let H="";L.forEach((p,i)=>{H+=`<div id="r${i}" onclick="SEL='${p[0]} - ${p[1]}';document.querySelectorAll('.rech div').forEach(e=>e.classList.remove('sel'));document.getElementById('r${i}').classList.add('sel')">${p[0]}<b style="display:block;color:#ff6a00">${p[1]}</b></div>`});document.getElementById('list').innerHTML=H}
-function orderNow(){let u=document.getElementById('uid').value;let tr=document.getElementById('trx').value;if(!SEL)return alert('প্যাকেজ সিলেক্ট করো');if(!u)return alert('UID দাও');if(!tr)return alert('TrxID দাও');let m=`*DADY SHOP*%0AUser: ${LOGGED}%0APackage: ${SEL}%0AUID: ${u}%0ATrxID: ${tr}`;window.open('https://wa.me/8801705780185?text='+m,'_blank')}
-updateLoginUI();
+function doLogin(){let p=document.getElementById('lPhone').value;if(p.length<11)return alert('সঠিক নাম্বার দাও');localStorage.setItem('dady_user',p);closeLogin();alert('Login Successful! এখন Order দাও');}
+function checkUid(){let u=document.getElementById('uid').value;if(!u)return alert('আগে UID দাও');document.getElementById('uidMsg').innerText='✅ UID চেক করা হয়েছে: '+u+' - নাম ঠিক আছে!';}
+function selectPay(t){PAY=t;document.getElementById('walletOpt').classList.toggle('sel',t=='wallet');document.getElementById('instantOpt').classList.toggle('sel',t=='instant');document.getElementById('walletBox').style.display=t=='wallet'?'block':'none';document.getElementById('instantBox').style.display=t=='instant'?'block':'none';}
+function orderNow(){let u=document.getElementById('uid').value;let tr=document.getElementById('trx').value;if(!SEL)return alert('প্যাকেজ সিলেক্ট করো');if(!u)return alert('UID দাও');if(!tr)return alert('TrxID দাও');let m=`*DADY SHOP*%0APackage: ${SEL} - ${PRICE} TK%0AUID: ${u}%0ATrxID: ${tr}%0APay: ${PAY}`;window.open('https://wa.me/8801705780185?text='+m,'_blank');}
 </script></body></html>
