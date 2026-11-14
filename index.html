@@ -25,11 +25,30 @@ body{background:#f1f5ff;padding-bottom:90px}
 .btnBlue{width:100%;background:#0f52bd;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;margin-top:12px}
 .googleBtn{width:100%;background:#fff;border:1px solid #ddd;padding:13px;border-radius:10px;font-weight:700;margin-top:12px}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;font-size:12px;text-align:center}
+/* 👇 নোটিশ ব্যানার */
+#noticeModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+.noticeBox{background:#fff;width:100%;max-width:340px;border-radius:18px;padding:22px;text-align:center;position:relative;box-shadow:0 10px 40px #0005}
+.noticeClose{position:absolute;top:10px;right:12px;background:#eee;border:none;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;font-weight:900}
+.noticeIcon{font-size:50px;margin-bottom:8px}
+.noticeTitle{font-size:20px;font-weight:900;color:#d32f2f;line-height:1.4}
+.noticeText{font-size:14px;color:#444;margin:10px 0;line-height:1.6}
+.noticeBtn{background:#0f52bd;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:900;font-size:15px;cursor:pointer}
 #loginModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
 #loginModal.show{display:flex}
 .loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:22px;text-align:center}
 .hide{display:none}
 </style></head><body>
+
+<!-- 👇 ঢুকলেই এই ব্যানার আসবে -->
+<div id="noticeModal">
+<div class="noticeBox">
+<button class="noticeClose" onclick="closeNotice()">✕</button>
+<div class="noticeIcon">⚠️</div>
+<div class="noticeTitle">বাবা-মার টাকা চুরি করে<br>আর একটা পাপ করবে নাকি?</div>
+<p class="noticeText">নিজের জমানো টাকায় টপআপ করো।<br>বাবা-মার কষ্টের টাকা চুরি করে গেম খেলো না।<br><b>সৎ থাকো, ভালো থাকো। ❤️</b></p>
+<button class="noticeBtn" onclick="closeNotice()">বুঝেছি, সৎ ভাবে নিবো ✅</button>
+</div>
+</div>
 
 <div class="head"><div class="logo">DADY SHOP</div><button class="loginBtn" id="topBtn" onclick="openLogin()">Login</button></div>
 
@@ -95,6 +114,7 @@ body{background:#f1f5ff;padding-bottom:90px}
 
 <script>
 var SEL="",PRICE="0";
+function closeNotice(){document.getElementById('noticeModal').style.display='none';}
 function showCat(id){['uid','fflike','weeklylite','weekly','level'].forEach(function(x){document.getElementById(x).classList.add('hide');});document.getElementById(id).classList.remove('hide');document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 function pick(el,name,price){document.querySelectorAll('.pkg').forEach(function(e){e.classList.remove('sel');});el.classList.add('sel');SEL=name;PRICE=price;document.getElementById('selName').innerText=name;document.getElementById('selPrice').innerText=price;}
 function openLogin(){var u=localStorage.getItem('dady_gmail');if(u){if(confirm('Logout করবে? '+u)){localStorage.removeItem('dady_gmail');location.reload();}return;}document.getElementById('loginModal').classList.add('show');}
