@@ -6,22 +6,20 @@ body{background:#f1f5ff;padding-bottom:90px}
 .logo{font-weight:900;color:#0f52bd;font-size:19px}
 .logo small{display:block;font-size:8px;letter-spacing:3px;color:#666}
 .loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-weight:700;font-size:13px}
-.page{display:none;padding:12px}.page.active{display:block}
-.secHead{font-size:22px;font-weight:900;padding:10px 4px;display:flex;gap:8px;align-items:center}
+.secHead{font-size:22px;font-weight:900;padding:14px 12px;display:flex;gap:8px;align-items:center}
 .secHead span{color:#0f52bd}.bar{width:5px;height:25px;background:#0f52bd;border-radius:5px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer}
-.card img{width:100%;height:150px;object-fit:cover;display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
+.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;border:2px solid transparent}
+.card:active{border-color:#0f52bd}
+.card img{width:100%;height:150px;object-fit:cover;display:block;background:#ddd}
 .card p{text-align:center;padding:12px;font-weight:700;font-size:14px}
-.topBox{background:#fff;border-radius:15px;padding:15px;display:flex;gap:12px;align-items:center}
-.topBox img{width:75px;height:75px;border-radius:12px;object-fit:cover}
-.badge{display:inline-block;background:#eaf1ff;color:#0f52bd;padding:4px 10px;border-radius:20px;font-size:12px;margin-top:6px;font-weight:700}
-.box{background:#fff;border-radius:15px;padding:15px;margin-top:12px}
+.box{background:#fff;border-radius:15px;padding:15px;margin:12px;box-shadow:0 2px 10px #0001}
 .secTitle{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:900;margin-bottom:15px}
-.num{background:#0f52bd;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.num{background:#0f52bd;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pkgGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pkg{border:1px solid #ddd;border-radius:10px;padding:13px 10px;display:flex;align-items:center;gap:8px;cursor:pointer}
+.pkg{border:1px solid #ddd;border-radius:10px;padding:13px 10px;display:flex;align-items:center;gap:8px;cursor:pointer;background:#fff}
 .pkg.sel{border:2px solid #0f52bd;background:#eaf1ff}
+.pkg b{font-size:13px}
 .pkg span{margin-left:auto;color:#ff6a00;font-weight:900;font-size:13px}
 .input{width:100%;padding:13px;border:1.5px solid #b9d2ff;border-radius:10px;margin-top:10px;outline:none}
 .btnBlue{width:100%;background:#0f52bd;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;margin-top:12px}
@@ -29,7 +27,7 @@ body{background:#f1f5ff;padding-bottom:90px}
 .payGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .payOpt{border:2px solid #ddd;border-radius:12px;overflow:hidden;cursor:pointer;text-align:center}
 .payOpt.sel{border-color:#0f52bd}
-.payOpt img{width:100%;height:90px;object-fit:cover;display:block}
+.payOpt div{height:90px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px}
 .payOpt p{text-align:left;padding:8px;background:#eee;font-size:13px}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;z-index:99;font-size:12px;text-align:center}
 .back{background:#eee;border:none;padding:8px 16px;border-radius:20px;font-weight:700}
@@ -40,64 +38,32 @@ body{background:#f1f5ff;padding-bottom:90px}
 
 <div class="head"><div class="logo">DADY SHOP<small>TOP UP YOUR LIFE</small></div><button class="loginBtn" id="topLoginBtn" onclick="openLogin()">Login</button></div>
 
-<div id="homePage" class="page active">
+<!-- HOME - এখানেই সব কার্ড দেখা যাবে -->
+<div id="homePage">
 <div class="secHead"><div class="bar"></div>GAMES <span>TOPUP</span></div>
 <div class="grid">
-<div class="card" onclick="openCat('fflike','FF LIKE','IMG-20260920-WA9575.jpg')"><img src="IMG-20260920-WA9575.jpg"><p>FF LIKE</p></div>
-<div class="card" onclick="openCat('uid','Uid TopUp (BD)','IMG-20260920-WA1879.jpg')"><img src="IMG-20260920-WA1879.jpg"><p>Uid TopUp (BD)</p></div>
-<div class="card" onclick="openCat('weeklylite','Weekly Lite (BD Server)','IMG-20260920-WA8156.jpg')"><img src="IMG-20260920-WA8156.jpg"><p>Weekly Lite (BD Server)</p></div>
-<div class="card" onclick="openCat('weeklymonthly','Weekly/Monthly Offer','IMG-20260920-WA5260.jpg')"><img src="IMG-20260920-WA5260.jpg"><p>Weekly/Monthly Offer</p></div>
-<div class="card" onclick="openCat('level','New Level Up Pass','IMG-20260920-WA1879.jpg')"><img src="IMG-20260920-WA1879.jpg"><p>New Level Up Pass</p></div>
+<div class="card" onclick="openCat('fflike')"><img src="IMG-20260920-WA9575.jpg" onerror="this.src='https://via.placeholder.com/300x150/ff6a00/fff?text=FF+LIKE'"><p>FF LIKE</p></div>
+<div class="card" onclick="openCat('uid')"><img src="IMG-20260920-WA1879.jpg" onerror="this.src='https://via.placeholder.com/300x150/0f52bd/fff?text=Uid+TopUp'"><p>Uid TopUp (BD)</p></div>
+<div class="card" onclick="openCat('weeklylite')"><img src="IMG-20260920-WA8156.jpg" onerror="this.src='https://via.placeholder.com/300x150/00c853/fff?text=Weekly+Lite'"><p>Weekly Lite (BD Server)</p></div>
+<div class="card" onclick="openCat('weeklymonthly')"><img src="IMG-20260920-WA5260.jpg" onerror="this.src='https://via.placeholder.com/300x150/9c27b0/fff?text=Weekly+Monthly'"><p>Weekly/Monthly Offer</p></div>
+<div class="card" onclick="openCat('level')"><img src="IMG-20260920-WA1879.jpg" onerror="this.src='https://via.placeholder.com/300x150/ff2d00/fff?text=Level+Up'"><p>New Level Up Pass</p></div>
 </div>
+<p style="text-align:center;color:#666;font-size:13px;margin:14px">👆 যেকোনো একটায় ক্লিক করো, নিচে অফার দেখাবে 👇</p>
 </div>
 
-<div id="detailPage" class="page">
+<!-- DETAIL - ক্লিক করলে এখানে অফার আসবে -->
+<div id="detailPage">
+<div class="box" id="detailBox" style="display:none">
 <button class="back" onclick="showHome()">← Back</button>
-<div class="topBox" style="margin-top:12px"><img id="dImg" src=""><div><h2 id="dTitle">Uid TopUp (BD)</h2><span class="badge">⚡ ২ সেকেন্ডে টপআপ</span></div></div>
-<div class="box"><div class="secTitle"><span class="num">1</span> Select Recharge</div><div class="pkgGrid" id="pkgList"></div></div>
-<div class="box"><div class="secTitle"><span class="num">2</span> Account Info</div><p style="font-weight:700">এখানে গেমের আইডি কোড দিন</p><input id="uid" class="input" placeholder="এখানে গেমের আইডি কোড দিন"><button class="btnBlue" onclick="checkUid()">আপনার গেম আইডির নাম চেক করুন</button><p id="uidMsg" style="font-size:13px;color:green;margin-top:8px;font-weight:700"></p></div>
-<div class="box"><div class="secTitle"><span class="num">3</span> Select one option</div>
-<div class="payGrid">
-<div class="payOpt sel" id="walletOpt" onclick="selectPay('wallet')"><img src="https://via.placeholder.com/300x150/0f52bd/fff?text=WALLET+PAY"><p>Wallet Pay</p></div>
-<div class="payOpt" id="instantOpt" onclick="selectPay('instant')"><img src="https://via.placeholder.com/300x150/ffffff/000?text=bKash+Nagad+Rocket"><p>Instant Pay</p></div>
-</div>
-<div id="walletBox"><p style="font-size:13px;margin-top:12px">ⓘ প্রোডাক্ট কিনতে আপনার প্রয়োজন <b id="needTk">0</b> টাকা।</p><p style="font-size:13px;color:#ff6a00;font-weight:700;margin-top:6px" id="loginWarn">ⓘ Please Login To Purchase</p><button class="btnBlue" onclick="openLogin()">Login</button></div>
-<div id="instantBox" style="display:none"><input id="trx" class="input" placeholder="TrxID দিন"><button class="btnBlue" onclick="orderNow()">✅ অর্ডার কনফার্ম করুন</button><p style="font-size:12px;text-align:center;margin-top:8px">পেমেন্ট: <b>01705780185</b></p></div>
-</div>
-</div>
+<h2 id="dTitle" style="margin:12px 0">Uid TopUp (BD)</h2>
+<p style="color:green;font-weight:700">⚡ ২ সেকেন্ডে টপআপ - DADY SHOP</p>
 
-<div class="bottom"><div onclick="showHome()">⌂<br>Home</div><div>▶<br>Tutorial</div><div style="color:#0f52bd">⊞<br>TopUp</div><div>☎<br>Contact Us</div></div>
+<div style="margin-top:16px"><div class="secTitle"><span class="num">1</span> Select Recharge</div><div class="pkgGrid" id="pkgList"></div></div>
 
-<!-- GMAIL LOGIN - 1 CLICK -->
-<div id="loginModal"><div class="loginBox">
-<img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:50px;margin-bottom:10px">
-<h3>DADY SHOP</h3><p style="font-size:13px;color:#666;margin:8px 0">Gmail দিয়ে লগইন করে অর্ডার করুন</p>
-<button class="googleBtn" onclick="googleLogin()"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" style="width:22px"> Continue with Google</button>
-<p style="font-size:11px;color:#999;margin-top:12px">1 ক্লিকে লগইন হয়ে যাবে</p>
-<button onclick="closeLogin()" style="background:none;border:none;margin-top:10px;color:#666">পরে করবো</button>
-</div></div>
+<div style="margin-top:16px"><div class="secTitle"><span class="num">2</span> Account Info</div>
+<p style="font-weight:700">এখানে গেমের আইডি কোড দিন</p>
+<input id="uid" class="input" placeholder="এখানে গেমের আইডি কোড দিন">
+<button class="btnBlue" onclick="checkUid()">আপনার গেম আইডির নাম চেক করুন</button>
+<p id="uidMsg" style="font-size:13px;color:green;margin-top:8px;font-weight:700"></p></div>
 
-<script>
-let SEL="",PRICE=0,PAY="wallet",CURCAT="uid";
-const DATA={
-fflike:[["FF Like 100","20 TK",20],["FF Like 200 Daily","30 TK",30],["FF Like 500","65 TK",65],["FF Like 1000","120 TK",120]],
-uid:[["Weekly ⚡","155 TK",155],["Monthly ⚡","765 TK",765],["25 Diamond","20 TK",20],["50 Diamond","35 TK",35],["115 Diamond","79 TK",79],["240 Diamond","156 TK",156],["355 Diamond","237 TK",237],["505 Diamond","336 TK",336],["610 Diamond","395 TK",395],["850 Diamond","558 TK",558],["1090 Diamond","716 TK",716],["1240 Diamond","795 TK",795],["2530 Diamond","1590 TK",1590],["5060 Diamond","3180 TK",3180],["7590 Diamond","4800 TK",4800],["10120 Diamond","6400 TK",6400]],
-weeklylite:[["Weekly Lite","150 TK",150],["Weekly Lite 2x","300 TK",300],["Weekly Lite 3x","450 TK",450]],
-weeklymonthly:[["Weekly","155 TK",155],["Monthly","765 TK",765],["Weekly + Monthly Combo","900 TK",900]],
-level:[["Level Up Pass 6","40 TK",40],["Level Up Pass 10","85 TK",85],["Level Up Pass Full","415 TK",415],["Level Up Pass Premium","650 TK",650]]
-};
-function showHome(){document.getElementById('homePage').classList.add('active');document.getElementById('detailPage').classList.remove('active');window.scrollTo(0,0)}
-function openCat(cat,title,img){CURCAT=cat;SEL="";PRICE=0;document.getElementById('needTk').innerText="0";document.getElementById('homePage').classList.remove('active');document.getElementById('detailPage').classList.add('active');document.getElementById('dTitle').innerText=title;document.getElementById('dImg').src=img;let L=DATA[cat];let h="";L.forEach((p,i)=>{h+=`<label class="pkg"><b>${p[0]}</b><span>${p[1]}</span></label>`});document.getElementById('pkgList').innerHTML=h;document.querySelectorAll('.pkg').forEach((el,i)=>{el.onclick=()=>{document.querySelectorAll('.pkg').forEach(e=>e.classList.remove('sel'));el.classList.add('sel');SEL=DATA[CURCAT][i][0];PRICE=DATA[CURCAT][i][2];document.getElementById('needTk').innerText=PRICE;}});window.scrollTo(0,0);}
-function openLogin(){let u=localStorage.getItem('dady_gmail');if(u){if(confirm('Logout করবে? '+u)){localStorage.removeItem('dady_gmail');location.reload();}return;}document.getElementById('loginModal').classList.add('show')}
-function closeLogin(){document.getElementById('loginModal').classList.remove('show')}
-function googleLogin(){
-let saved=localStorage.getItem('dady_gmail');
-let email = prompt('আপনার Gmail লিখুন:', saved||'example@gmail.com');
-if(!email) return;
-if(!email.includes('@')) return alert('সঠিক Gmail দাও');
-localStorage.setItem('dady_gmail',email);
-updateUser();
-closeLogin();
-alert('Welcome! Gmail Login Successful ✅\n'+email);
-}
-function updateUser(){
+<div style="margin-top:16px"><div class="secTitle"><span class="num">3</span> Select one option</div
