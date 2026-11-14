@@ -5,16 +5,10 @@ body{background:#f1f5ff;padding-bottom:90px}
 .head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
 .logo{font-weight:900;color:#0f52bd;font-size:19px}
 .loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-weight:700}
-.top{padding:14px 12px;font-size:22px;font-weight:900}
-.top span{color:#0f52bd}
+.top{padding:14px 12px;font-size:22px;font-weight:900}.top span{color:#0f52bd}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
 .card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;text-align:center}
-.card .icon{width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:55px;color:#fff;font-weight:900}
-.c1{background:linear-gradient(135deg,#ff6a00,#ff2d00)}
-.c2{background:linear-gradient(135deg,#0f52bd,#00a8ff)}
-.c3{background:linear-gradient(135deg,#00c853,#00e676)}
-.c4{background:linear-gradient(135deg,#9c27b0,#e040fb)}
-.c5{background:linear-gradient(135deg,#ff9800,#ff5722)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eaf1ff}
 .card p{padding:12px;font-weight:700;font-size:14px}
 .box{background:#fff;border-radius:15px;padding:15px;margin:12px;box-shadow:0 2px 10px #0001}
 .pkgGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -26,63 +20,27 @@ body{background:#f1f5ff;padding-bottom:90px}
 .googleBtn{width:100%;background:#fff;border:1px solid #ddd;padding:13px;border-radius:10px;font-weight:700;margin-top:12px}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #ddd;font-size:12px;text-align:center}
 .modal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
-.noticeBox{background:#fff;width:100%;max-width:340px;border-radius:18px;padding:22px;text-align:center;position:relative;box-shadow:0 10px 40px #0005}
+.noticeBox{background:#fff;width:100%;max-width:340px;border-radius:18px;padding:22px;text-align:center;position:relative}
 .noticeClose{position:absolute;top:10px;right:12px;background:#eee;border:none;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;font-weight:900}
-.noticeIcon{font-size:50px;margin-bottom:8px}
 .noticeTitle{font-size:20px;font-weight:900;color:#d32f2f;line-height:1.4}
 .noticeTitle2{font-size:20px;font-weight:900;color:#0f52bd;line-height:1.4}
 .noticeText{font-size:14px;color:#444;margin:10px 0;line-height:1.7}
 .noticeBtn{background:#0f52bd;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:900;font-size:15px;cursor:pointer}
 .noticeBtn2{background:#ff6a00;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:900;font-size:15px;cursor:pointer}
 #loginModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
-#loginModal.show{display:flex}
-.loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:22px;text-align:center}
-.hide{display:none}
+#loginModal.show{display:flex}.loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:22px;text-align:center}.hide{display:none}
 </style></head><body>
-
-<!-- 👇 ১ম ব্যানার - বাবা মার টাকা -->
-<div id="notice1" class="modal">
-<div class="noticeBox">
-<button class="noticeClose" onclick="close1()">✕</button>
-<div class="noticeIcon">⚠️</div>
-<div class="noticeTitle">বাবা-মার টাকা চুরি করে<br>আর একটা পাপ করবে নাকি?</div>
-<p class="noticeText">নিজের জমানো টাকায় টপআপ করো।<br>বাবা-মার কষ্টের টাকা চুরি করে গেম খেলো না।<br><b>সৎ থাকো, ভালো থাকো। ❤️</b></p>
-<button class="noticeBtn" onclick="close1()">বুঝেছি, সৎ ভাবে নিবো ✅</button>
-</div>
-</div>
-
-<!-- 👇 ২য় ব্যানার - EFAT & ASIF BHAI এর গল্প -->
-<div id="notice2" class="modal" style="display:none">
-<div class="noticeBox">
-<button class="noticeClose" onclick="close2()">✕</button>
-<div class="noticeIcon">👑</div>
-<div class="noticeTitle2">ADMIN EFAT<br>& ASIF BHAI</div>
-<p class="noticeText">আসসালামু আলাইকুম ভাইয়েরা ❤️<br><br>
-এই <b>DADY SHOP</b> সাইটটা <b>ADMIN EFAT আর ASIF BHAI</b> অনেক কষ্ট করে, অনেক রাত জেগে, নিজের হাতে বানাইছে।<br><br>
-তোমাদের জন্য সবচেয়ে কম দামে, সবচেয়ে দ্রুত টপআপ দেওয়ার জন্য আমরা দিন-রাত চেষ্টা করতেছি।<br><br>
-<b>তোমাদের একটা টপআপই আমাদের কষ্টের দাম।</b><br>
-সাপোর্ট করো, পাশে থাকো, বিশ্বাস রাখো।<br>
-ইনশাআল্লাহ ঠকবা না। 🙏🔥</p>
-<button class="noticeBtn2" onclick="close2()">ভালোবাসা রইলো, টপআপ করবো 💎</button>
-</div>
-</div>
-
+<div id="notice1" class="modal"><div class="noticeBox"><button class="noticeClose" onclick="close1()">✕</button><div style="font-size:50px">⚠️</div><div class="noticeTitle">বাবা-মার টাকা চুরি করে<br>আর একটা পাপ করবে নাকি?</div><p class="noticeText">নিজের জমানো টাকায় টপআপ করো।<br>বাবা-মার কষ্টের টাকা চুরি করে গেম খেলো না।<br><b>সৎ থাকো, ভালো থাকো। ❤️</b></p><button class="noticeBtn" onclick="close1()">বুঝেছি, সৎ ভাবে নিবো ✅</button></div></div>
+<div id="notice2" class="modal" style="display:none"><div class="noticeBox"><button class="noticeClose" onclick="close2()">✕</button><div style="font-size:50px">👑</div><div class="noticeTitle2">ADMIN EFAT<br>& ASIF BHAI</div><p class="noticeText">আসসালামু আলাইকুম ভাইয়েরা ❤️<br><br>এই <b>DADY SHOP</b> সাইটটা <b>ADMIN EFAT আর ASIF BHAI</b> অনেক কষ্ট করে, অনেক রাত জেগে, নিজের হাতে বানাইছে।<br><br>তোমাদের জন্য সবচেয়ে কম দামে, সবচেয়ে দ্রুত টপআপ দেওয়ার জন্য আমরা দিন-রাত চেষ্টা করতেছি।<br><br><b>তোমাদের একটা টপআপই আমাদের কষ্টের দাম।</b><br>সাপোর্ট করো, পাশে থাকো, বিশ্বাস রাখো।<br>ইনশাআল্লাহ ঠকবা না। 🙏🔥</p><button class="noticeBtn2" onclick="close2()">ভালোবাসা রইলো, টপআপ করবো 💎</button></div></div>
 <div class="head"><div class="logo">DADY SHOP</div><button class="loginBtn" id="topBtn" onclick="openLogin()">Login</button></div>
-
-<div id="home">
-<div class="top">GAMES <span>TOPUP</span></div>
-<div class="grid">
-<div class="card" onclick="showCat('fflike')"><div class="icon c1">👍<span style="font-size:18px;margin-top:5px">FF LIKE</span></div><p>FF LIKE</p></div>
-<div class="card" onclick="showCat('uid')"><div class="icon c2">💎<span style="font-size:18px;margin-top:5px">UID TOPUP</span></div><p>Uid TopUp (BD)</p></div>
-<div class="card" onclick="showCat('weeklylite')"><div class="icon c3">⚡<span style="font-size:18px;margin-top:5px">WEEKLY LITE</span></div><p>Weekly Lite (BD Server)</p></div>
-<div class="card" onclick="showCat('weekly')"><div class="icon c4">📅<span style="font-size:18px;margin-top:5px">WEEKLY</span></div><p>Weekly/Monthly Offer</p></div>
-<div class="card" onclick="showCat('level')"><div class="icon c5">🆙<span style="font-size:18px;margin-top:5px">LEVEL UP</span></div><p>New Level Up Pass</p></div>
-</div>
-<p style="text-align:center;color:#666;font-size:13px;margin:14px">👆 যেকোনো একটায় ক্লিক করো 👇</p>
-</div>
-
-<div id="uid" class="box"><h2>🔥 Uid TopUp (BD)</h2><p style="color:green;font-weight:700;margin:6px 0">⚡ ২ সেকেন্ডে টপআপ</p>
-<div class="pkgGrid">
+<div id="home"><div class="top">GAMES <span>TOPUP</span></div><div class="grid">
+<div class="card" onclick="showCat('fflike')"><img src="Picsart_26-11-14_10-11-22-175.jpg"><p>FF LIKE</p></div>
+<div class="card" onclick="showCat('uid')"><img src="Picsart_26-11-14_10-10-31-028.jpg"><p>Uid TopUp (BD)</p></div>
+<div class="card" onclick="showCat('weeklylite')"><img src="Picsart_26-11-14_10-12-13-750.jpg"><p>Weekly Lite (BD Server)</p></div>
+<div class="card" onclick="showCat('weekly')"><img src="Picsart_26-11-14_10-30-42-678.jpg"><p>Weekly/Monthly Offer</p></div>
+<div class="card" onclick="showCat('level')"><img src="Picsart_26-11-14_10-13-09-589.jpg"><p>New Level Up Pass</p></div>
+</div></div>
+<div id="uid" class="box"><h2>🔥 Uid TopUp (BD)</h2><div class="pkgGrid">
 <div class="pkg" onclick="pick(this,'Weekly','155')"><b>Weekly</b><span>155 TK</span></div>
 <div class="pkg" onclick="pick(this,'Monthly','765')"><b>Monthly</b><span>765 TK</span></div>
 <div class="pkg" onclick="pick(this,'25 Diamond','20')"><b>25 Diamond</b><span>20 TK</span></div>
@@ -100,35 +58,27 @@ body{background:#f1f5ff;padding-bottom:90px}
 <div class="pkg" onclick="pick(this,'7590 Diamond','4800')"><b>7590 Diamond</b><span>4800 TK</span></div>
 <div class="pkg" onclick="pick(this,'10120 Diamond','6400')"><b>10120 Diamond</b><span>6400 TK</span></div>
 </div></div>
-
 <div id="fflike" class="box hide"><h2>❤️ FF LIKE</h2><div class="pkgGrid" style="margin-top:12px">
 <div class="pkg" onclick="pick(this,'FF Like 100','20')"><b>FF Like 100</b><span>20 TK</span></div>
 <div class="pkg" onclick="pick(this,'FF Like 200 Daily','30')"><b>FF Like 200</b><span>30 TK</span></div>
 <div class="pkg" onclick="pick(this,'FF Like 500','65')"><b>FF Like 500</b><span>65 TK</span></div>
 <div class="pkg" onclick="pick(this,'FF Like 1000','120')"><b>FF Like 1000</b><span>120 TK</span></div></div></div>
-
 <div id="weeklylite" class="box hide"><h2>⚡ Weekly Lite</h2><div class="pkgGrid" style="margin-top:12px">
 <div class="pkg" onclick="pick(this,'Weekly Lite','150')"><b>Weekly Lite</b><span>150 TK</span></div>
 <div class="pkg" onclick="pick(this,'Weekly Lite 2x','300')"><b>Weekly Lite 2x</b><span>300 TK</span></div>
 <div class="pkg" onclick="pick(this,'Weekly Lite 3x','450')"><b>Weekly Lite 3x</b><span>450 TK</span></div></div></div>
-
 <div id="weekly" class="box hide"><h2>📅 Weekly / Monthly</h2><div class="pkgGrid" style="margin-top:12px">
 <div class="pkg" onclick="pick(this,'Weekly','155')"><b>Weekly</b><span>155 TK</span></div>
 <div class="pkg" onclick="pick(this,'Monthly','765')"><b>Monthly</b><span>765 TK</span></div>
 <div class="pkg" onclick="pick(this,'Weekly + Monthly Combo','900')"><b>Combo</b><span>900 TK</span></div></div></div>
-
 <div id="level" class="box hide"><h2>🆙 Level Up Pass</h2><div class="pkgGrid" style="margin-top:12px">
 <div class="pkg" onclick="pick(this,'Level Up 6','40')"><b>Level Up 6</b><span>40 TK</span></div>
 <div class="pkg" onclick="pick(this,'Level Up 10','85')"><b>Level Up 10</b><span>85 TK</span></div>
 <div class="pkg" onclick="pick(this,'Level Up Full','415')"><b>Level Up Full</b><span>415 TK</span></div>
 <div class="pkg" onclick="pick(this,'Level Up Premium','650')"><b>Level Up Premium</b><span>650 TK</span></div></div></div>
-
 <div class="box"><h3>2. Account Info</h3><p style="margin-top:8px">সিলেক্ট: <b id="selName" style="color:#0f52bd">কোনোটা সিলেক্ট করো নাই</b> - <b id="selPrice">0</b> TK</p><input id="uidInput" class="input" placeholder="এখানে গেমের আইডি কোড দিন"><input id="trxInput" class="input" placeholder="TrxID দিন - bKash 01705780185"><button class="btnBlue" onclick="orderNow()">✅ অর্ডার কনফার্ম করুন</button></div>
-
 <div class="bottom"><div>⌂<br>Home</div><div>▶<br>Tutorial</div><div style="color:#0f52bd">⊞<br>TopUp</div><div>☎<br>Contact Us</div></div>
-
-<div id="loginModal"><div class="loginBox"><h3>DADY SHOP</h3><p style="font-size:13px;color:#666;margin:8px 0">Gmail দিয়ে লগইন করুন</p><button class="googleBtn" onclick="googleLogin()">🔵 Continue with Google</button><button onclick="closeLogin()" style="background:none;border:none;margin-top:10px;color:#666">পরে করবো</button></div></div>
-
+<div id="loginModal"><div class="loginBox"><h3>DADY SHOP</h3><button class="googleBtn" onclick="googleLogin()">🔵 Continue with Google</button><button onclick="closeLogin()" style="background:none;border:none;margin-top:10px;color:#666">পরে করবো</button></div></div>
 <script>
 var SEL="",PRICE="0";
 function close1(){document.getElementById('notice1').style.display='none';document.getElementById('notice2').style.display='flex';}
