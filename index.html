@@ -1,162 +1,177 @@
-<!DOCTYPE html><html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DADY SHOP</title>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DADY SHOP - Top Up BD</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#f1f5ff;padding-bottom:110px}
-.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:6px 12px;position:sticky;top:0;z-index:99;box-shadow:0 2px 10px #0001}
-.logoImg{height:58px;width:auto;max-width:190px;object-fit:contain;display:block}
+.head{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;position:sticky;top:0;z-index:10}
+.logo{font-size:24px;font-weight:900;color:#0f52bd}.logo span{color:#ff6a00}
 .headRight{display:flex;align-items:center;gap:8px}
-.walletBtn{background:#0f52bd;color:#fff;border:none;padding:9px 14px;border-radius:999px;font-weight:900;font-size:14px;display:flex;align-items:center;gap:5px;cursor:pointer;box-shadow:0 3px 10px #0f52bd55}
-.loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 12px;border-radius:6px;font-weight:700}
-.top{padding:14px 12px;font-size:22px;font-weight:900}.top span{color:#0f52bd}
+.walletBtn{background:#0f52bd;color:#fff;border:none;padding:8px 12px;border-radius:20px;font-weight:700}
+.loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;cursor:pointer}
+.notice{background:#0f52bd;color:#fff;margin:10px 12px;border-radius:25px;display:flex;align-items:center;padding:8px 8px 8px 12px;gap:8px;font-size:13px;font-weight:700;overflow:hidden}
+.notice span{background:#fff;color:#0f52bd;padding:4px 10px;border-radius:15px;font-size:11px;white-space:nowrap}
+.notice marquee{flex:1}
+.slider{margin:10px 12px;overflow:hidden;border-radius:15px;position:relative}
+.slides{display:flex;transition:transform .5s}
+.slide{min-width:100%;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:0;position:relative;overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide h2{font-size:28px;line-height:1.1;text-shadow:2px 2px 0 #00000033}
+.slide p{margin-top:8px;background:#fff;color:#0f52bd;padding:6px 14px;border-radius:8px;font-weight:800;font-size:14px}
+.slide small{margin-top:6px;font-weight:700}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:8px}
+.dot{width:18px;height:5px;background:#ccc;border-radius:10px}
+.dot.active{background:#000;width:28px}
+.teleRow{display:flex;gap:10px;padding:0 12px;margin-top:12px}
+.teleBtn{flex:1;background:#0f52bd;color:#fff;border:none;padding:12px;border-radius:10px;display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer}
+.teleBtn small{display:block;font-size:10px;opacity:.8}
+.secTitle{padding:16px 12px 8px;font-size:19px;font-weight:900}
+.secTitle span{color:#0f52bd}
+.bonusRow{display:flex;gap:10px;padding:0 12px;overflow-x:auto}
+.bonusCard{min-width:150px;background:#fff;border-radius:12px;overflow:hidden;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.bonusCard div{height:140px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;padding:10px;text-align:center;line-height:1.3}
+.bonusCard p{padding:10px;font-size:12px;font-weight:700;color:#555}
+.top{padding:6px 12px;font-size:22px;font-weight:800}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 4px 15px #0001;cursor:pointer;text-align:center}
-.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eaf1ff}
-.card p{padding:12px;font-weight:700;font-size:14px}
-.box{background:#fff;border-radius:15px;padding:15px;margin:12px;box-shadow:0 2px 10px #0001}
+.card{background:#fff;border-radius:15px;overflow:hidden;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.card p{padding:12px;font-weight:700;font-size:15px}
+.box{background:#fff;border-radius:15px;padding:14px;margin:14px 12px 0}
 .pkgGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pkg{border:1px solid #ddd;border-radius:10px;padding:13px 10px;display:flex;justify-content:space-between;cursor:pointer}
-.pkg b{font-size:13px}.pkg span{color:#ff6a00;font-weight:900;font-size:13px}
-.pkg.sel{border:2px solid #0f52bd;background:#eaf1ff}
-.input{width:100%;padding:13px;border:1.5px solid #b9d2ff;border-radius:10px;margin-top:10px}
-.btnBlue{width:100%;background:#0f52bd;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;margin-top:12px}
-.btnGreen{width:100%;background:#00a651;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;margin-top:12px}
-.googleBtn{width:100%;background:#fff;border:1px solid #ddd;padding:13px;border-radius:10px;font-weight:700;margin-top:12px}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;align-items:flex-end;padding:8px 4px 10px;border-top:1px solid #eee;z-index:99;box-shadow:0 -3px 15px #0001}
-.bItem{flex:1;text-align:center;font-size:11px;color:#666;cursor:pointer;line-height:1.3}
-.bItem.active{color:#0f52bd;font-weight:800}
-.bItem .ic{font-size:22px;display:block}
-.bCenter{flex:1;text-align:center;margin-top:-28px;cursor:pointer}
-.bPlus{width:56px;height:56px;background:#0f52bd;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;margin:0 auto;box-shadow:0 5px 15px #0f52bd88;border:4px solid #f1f5ff}
-.bCenter span{font-size:11px;color:#666;display:block;margin-top:2px}
-.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
-.noticeBox{background:#fff;width:100%;max-width:340px;border-radius:18px;padding:22px;text-align:center;position:relative}
-.noticeClose{position:absolute;top:10px;right:12px;background:#eee;border:none;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;font-weight:900}
-.noticeTitle{font-size:20px;font-weight:900;color:#d32f2f;line-height:1.4}
-.noticeTitle2{font-size:20px;font-weight:900;color:#0f52bd;line-height:1.4}
-.noticeText{font-size:14px;color:#444;margin:10px 0;line-height:1.7}
-.noticeBtn{background:#0f52bd;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:900;font-size:15px;cursor:pointer}
-.noticeBtn2{background:#ff6a00;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:900;font-size:15px;cursor:pointer}
-#loginModal,#walletModal,#ordersModal,#codesModal,#accountModal{position:fixed;top:0;left:0;right:0;bottom:0;background:#0008;z-index:999;display:none;align-items:center;justify-content:center;padding:20px}
-#loginModal.show,#walletModal.show,#ordersModal.show,#codesModal.show,#accountModal.show{display:flex}.loginBox{background:#fff;width:100%;max-width:340px;border-radius:16px;padding:22px;text-align:center;max-height:85vh;overflow:auto}.hide{display:none}
-.walletBig{background:#0f52bd;color:#fff;border-radius:14px;padding:16px;text-align:center}
-.walletBig b{font-size:28px}
-.orderItem{background:#f1f5ff;border-radius:10px;padding:10px;margin-top:8px;text-align:left;font-size:13px;line-height:1.6}
-</style></head><body>
-<div id="notice1" class="modal"><div class="noticeBox"><button class="noticeClose" onclick="close1()">✕</button><div style="font-size:50px">⚠️</div><div class="noticeTitle">বাবা-মার টাকা চুরি করে<br>আর একটা পাপ করবে নাকি?</div><p class="noticeText">নিজের জমানো টাকায় টপআপ করো।<br>বাবা-মার কষ্টের টাকা চুরি করে গেম খেলো না।<br><b>সৎ থাকো, ভালো থাকো। ❤️</b></p><button class="noticeBtn" onclick="close1()">বুঝেছি, সৎ ভাবে নিবো ✅</button></div></div>
-<div id="notice2" class="modal" style="display:none"><div class="noticeBox"><button class="noticeClose" onclick="close2()">✕</button><div style="font-size:50px">👑</div><div class="noticeTitle2">ADMIN EFAT<br>& ASIF BHAI</div><p class="noticeText">আসসালামু আলাইকুম ভাইয়েরা ❤️<br><br>এই <b>DADY SHOP</b> সাইটটা <b>ADMIN EFAT আর ASIF BHAI</b> অনেক কষ্ট করে, অনেক রাত জেগে, নিজের হাতে বানাইছে।<br><br>তোমাদের জন্য সবচেয়ে কম দামে, সবচেয়ে দ্রুত টপআপ দেওয়ার জন্য আমরা দিন-রাত চেষ্টা করতেছি।<br><br><b>তোমাদের একটা টপআপই আমাদের কষ্টের দাম।</b><br>সাপোর্ট করো, পাশে থাকো, বিশ্বাস রাখো।<br>ইনশাআল্লাহ ঠকবা না। 🙏🔥</p><button class="noticeBtn2" onclick="close2()">ভালোবাসা রইলো, টপআপ করবো 💎</button></div></div>
-<div class="head"><img src="Picsart_26-11-14_15-36-53-662.png" class="logoImg"><div class="headRight"><button class="walletBtn" onclick="openWallet()">👛 <span id="walletTop">0৳</span></button><button class="loginBtn" id="topBtn" onclick="openLogin()">Login</button></div></div>
-<div id="home"><div class="top">GAMES <span>TOPUP</span></div><div class="grid">
-<div class="card" onclick="showCat('fflike')"><img src="Picsart_26-11-14_10-11-22-175.jpg"><p>FF LIKE</p></div>
-<div class="card" onclick="showCat('uid')"><img src="Picsart_26-11-14_10-10-31-028.jpg"><p>Uid TopUp (BD)</p></div>
-<div class="card" onclick="showCat('weeklylite')"><img src="Picsart_26-11-14_10-12-13-750.jpg"><p>Weekly Lite (BD Server)</p></div>
-<div class="card" onclick="showCat('weekly')"><img src="Picsart_26-11-14_10-30-42-678.jpg"><p>Weekly/Monthly Offer</p></div>
-<div class="card" onclick="showCat('level')"><img src="Picsart_26-11-14_10-13-09-589.jpg"><p>New Level Up Pass</p></div>
-</div></div>
-<div id="uid" class="box"><h2>🔥 Uid TopUp (BD)</h2><div class="pkgGrid">
-<div class="pkg" onclick="pick(this,'Weekly','155')"><b>Weekly</b><span>155 TK</span></div>
-<div class="pkg" onclick="pick(this,'Monthly','765')"><b>Monthly</b><span>765 TK</span></div>
-<div class="pkg" onclick="pick(this,'25 Diamond','20')"><b>25 Diamond</b><span>20 TK</span></div>
-<div class="pkg" onclick="pick(this,'50 Diamond','35')"><b>50 Diamond</b><span>35 TK</span></div>
-<div class="pkg" onclick="pick(this,'115 Diamond','79')"><b>115 Diamond</b><span>79 TK</span></div>
-<div class="pkg" onclick="pick(this,'240 Diamond','156')"><b>240 Diamond</b><span>156 TK</span></div>
-<div class="pkg" onclick="pick(this,'355 Diamond','237')"><b>355 Diamond</b><span>237 TK</span></div>
-<div class="pkg" onclick="pick(this,'505 Diamond','336')"><b>505 Diamond</b><span>336 TK</span></div>
-<div class="pkg" onclick="pick(this,'610 Diamond','395')"><b>610 Diamond</b><span>395 TK</span></div>
-<div class="pkg" onclick="pick(this,'850 Diamond','558')"><b>850 Diamond</b><span>558 TK</span></div>
-<div class="pkg" onclick="pick(this,'1090 Diamond','716')"><b>1090 Diamond</b><span>716 TK</span></div>
-<div class="pkg" onclick="pick(this,'1240 Diamond','795')"><b>1240 Diamond</b><span>795 TK</span></div>
-<div class="pkg" onclick="pick(this,'2530 Diamond','1590')"><b>2530 Diamond</b><span>1590 TK</span></div>
-<div class="pkg" onclick="pick(this,'5060 Diamond','3180')"><b>5060 Diamond</b><span>3180 TK</span></div>
-<div class="pkg" onclick="pick(this,'7590 Diamond','4800')"><b>7590 Diamond</b><span>4800 TK</span></div>
-<div class="pkg" onclick="pick(this,'10120 Diamond','6400')"><b>10120 Diamond</b><span>6400 TK</span></div>
-</div></div>
-<div id="fflike" class="box hide"><h2>❤️ FF LIKE</h2><div class="pkgGrid" style="margin-top:12px">
-<div class="pkg" onclick="pick(this,'FF Like 100','20')"><b>FF Like 100</b><span>20 TK</span></div>
-<div class="pkg" onclick="pick(this,'FF Like 200 Daily','30')"><b>FF Like 200</b><span>30 TK</span></div>
-<div class="pkg" onclick="pick(this,'FF Like 500','65')"><b>FF Like 500</b><span>65 TK</span></div>
-<div class="pkg" onclick="pick(this,'FF Like 1000','120')"><b>FF Like 1000</b><span>120 TK</span></div></div></div>
-<div id="weeklylite" class="box hide"><h2>⚡ Weekly Lite</h2><div class="pkgGrid" style="margin-top:12px">
-<div class="pkg" onclick="pick(this,'Weekly Lite','150')"><b>Weekly Lite</b><span>150 TK</span></div>
-<div class="pkg" onclick="pick(this,'Weekly Lite 2x','300')"><b>Weekly Lite 2x</b><span>300 TK</span></div>
-<div class="pkg" onclick="pick(this,'Weekly Lite 3x','450')"><b>Weekly Lite 3x</b><span>450 TK</span></div></div></div>
-<div id="weekly" class="box hide"><h2>📅 Weekly / Monthly</h2><div class="pkgGrid" style="margin-top:12px">
-<div class="pkg" onclick="pick(this,'Weekly','155')"><b>Weekly</b><span>155 TK</span></div>
-<div class="pkg" onclick="pick(this,'Monthly','765')"><b>Monthly</b><span>765 TK</span></div>
-<div class="pkg" onclick="pick(this,'Weekly + Monthly Combo','900')"><b>Combo</b><span>900 TK</span></div></div></div>
-<div id="level" class="box hide"><h2>🆙 Level Up Pass</h2><div class="pkgGrid" style="margin-top:12px">
-<div class="pkg" onclick="pick(this,'Level Up 6','40')"><b>Level Up 6</b><span>40 TK</span></div>
-<div class="pkg" onclick="pick(this,'Level Up 10','85')"><b>Level Up 10</b><span>85 TK</span></div>
-<div class="pkg" onclick="pick(this,'Level Up Full','415')"><b>Level Up Full</b><span>415 TK</span></div>
-<div class="pkg" onclick="pick(this,'Level Up Premium','650')"><b>Level Up Premium</b><span>650 TK</span></div></div></div>
-<div class="box"><h3>2. Account Info</h3><p style="margin-top:8px">সিলেক্ট: <b id="selName" style="color:#0f52bd">কোনোটা সিলেক্ট করো নাই</b> - <b id="selPrice">0</b> TK | Wallet: <b id="walletMid" style="color:#00a651">0৳</b></p><input id="uidInput" class="input" placeholder="এখানে গেমের আইডি কোড দিন"><input id="trxInput" class="input" placeholder="TrxID দিন - bKash 01705780185"><p id="trxMsg" style="font-size:13px;margin-top:6px;color:#d32f2f;font-weight:700"></p><button class="btnBlue" onclick="orderNow()">✅ অর্ডার কনফার্ম করুন</button><button class="btnGreen" onclick="openWallet()">👛 Wallet এ টাকা Add করো</button></div>
-
-<div class="bottom">
-<div class="bItem active" onclick="goHome(this)"><span class="ic">⌂</span>Home</div>
-<div class="bItem" onclick="openOrders()"><span class="ic">🛍️</span>My Orders</div>
-<div class="bCenter" onclick="openWallet()"><div class="bPlus">+</div><span>Add Money</span></div>
-<div class="bItem" onclick="openCodes()"><span class="ic">🧾</span>My Codes</div>
-<div class="bItem" onclick="openAccount()"><span class="ic">👤</span>My Account</div>
+.pkg{border:1px solid #ddd;border-radius:10px;padding:12px;text-align:center;cursor:pointer}.pkg span{color:#ff6a00;font-weight:800;display:block;margin-top:4px}
+.pkg.sel{border:2px solid #0f52bd;background:#eef4ff}
+.input{width:100%;padding:13px;border:1.5px solid #ddd;border-radius:10px;margin-top:10px;font-size:15px;outline:none}
+.btnBlue{width:100%;background:#0f52bd;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:800;font-size:16px;margin-top:12px;cursor:pointer}
+.btnGreen{width:100%;background:#00a651;color:#fff;border:none;padding:14px;border-radius:10px;font-weight:800;font-size:16px;margin-top:10px;cursor:pointer}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px;border-top:1px solid #eee;z-index:20}
+.bottom div{text-align:center;font-size:12px;font-weight:700;color:#555;cursor:pointer}
+.bottom div.active{color:#0f52bd}
+.profileWrap{display:none;padding:12px}
+.profileCard{background:#fff;border-radius:22px;padding:20px;text-align:center}
+.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 0 0 2px #ddd;margin:0 auto}
+.profileName{font-size:26px;font-weight:900;margin-top:10px;text-transform:uppercase}
+.verified{display:inline-block;background:#e8f5e9;color:#2e7d32;padding:5px 14px;border-radius:20px;font-weight:700;font-size:13px;margin-top:8px}
+.pinRow{color:#666;font-weight:700;margin-top:10px;font-size:14px}
+.rankBox{display:flex;align-items:center;justify-content:center;gap:12px;background:#f8f9fa;padding:12px;border-radius:12px;margin-top:14px}
+.walletBox{background:linear-gradient(135deg,#fff,#eaf2ff);border-radius:18px;padding:18px;margin-top:14px;text-align:left}
+.walletBal{font-size:36px;font-weight:900;margin:8px 0}
+.addMoney{width:100%;background:linear-gradient(90deg,#0a2a5e,#0f52bd);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:99;align-items:center;justify-content:center;padding:16px}
+.modalBox{background:#fff;width:100%;max-width:380px;border-radius:18px;padding:22px;text-align:center}
+.gBtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;background:#fff;font-weight:700;cursor:pointer;margin-top:14px;font-size:15px}
+</style>
+</head>
+<body>
+<div class="head">
+<div class="logo">DADY <span>SHOP</span></div>
+<div class="headRight">
+<button class="walletBtn" id="topWallet">৳ 0</button>
+<button class="loginBtn" id="topLogin" onclick="openLogin()">Login</button>
+</div>
 </div>
 
-<div id="loginModal"><div class="loginBox"><h3>DADY SHOP</h3><button class="googleBtn" onclick="googleLogin()">🔵 Continue with Google</button><button onclick="closeLogin()" style="background:none;border:none;margin-top:10px;color:#666">পরে করবো</button></div></div>
-<div id="walletModal"><div class="loginBox"><h3>👛 My Wallet</h3><div class="walletBig" style="margin:12px 0">বর্তমান ব্যালেন্স<br><b id="walletBig">0৳</b></div><p style="font-size:13px;color:#555;line-height:1.6">1. bKash এ টাকা পাঠাও: <b>01705780185</b><br>2. নিচে টাকার পরিমাণ + TrxID দাও<br>3. TrxID ঠিক থাকলে Request Admin এর কাছে যাবে</p><input id="addAmt" class="input" type="number" placeholder="কত টাকা Add করবা? যেমন 200"><input id="addTrx" class="input" placeholder="TrxID দাও - ১০ অক্ষরের"><p id="walletMsg" style="font-size:13px;margin-top:6px;color:#d32f2f;font-weight:700"></p><button class="btnGreen" onclick="addMoney()">✅ Add Money</button><button onclick="closeWallet()" style="background:none;border:none;margin-top:10px;color:#666">বন্ধ করো</button></div></div>
-<div id="ordersModal"><div class="loginBox"><h3>🛍️ My Orders</h3><div id="ordersList"></div><button onclick="closeOrders()" style="background:none;border:none;margin-top:12px;color:#666">বন্ধ করো</button></div></div>
-<div id="codesModal"><div class="loginBox"><h3>🧾 My Codes</h3><p style="font-size:13px;color:#555">তুমি যেই TrxID গুলো ব্যবহার করছো</p><div id="codesList"></div><button onclick="closeCodes()" style="background:none;border:none;margin-top:12px;color:#666">বন্ধ করো</button></div></div>
-<div id="accountModal"><div class="loginBox"><h3>👤 My Account</h3><div class="walletBig" style="margin:12px 0">Wallet Balance<br><b id="accWallet">0৳</b></div><p id="accGmail" style="font-size:14px">Login করা নাই</p><button class="btnBlue" onclick="closeAccount();openLogin()">Login / Change Account</button><button onclick="closeAccount()" style="background:none;border:none;margin-top:10px;color:#666">বন্ধ করো</button></div></div>
+<div id="homePage">
+<div class="notice"><span>● NOTICE</span><marquee>এখানে আমাদের সাইটে রাত দিন ২৪ ঘণ্টা অর্ডার করতে পারবেন। ধন্যবাদ DADY SHOP এ থাকার জন্য!</marquee><b onclick="this.parentElement.style.display='none'" style="cursor:pointer">✕</b></div>
+
+<!-- তোমার ছবি দিয়ে ব্যানার -->
+<div class="slider"><div class="slides" id="slides">
+<div class="slide"><img src="Picsart_26-11-15_19-50-37-922.png"></div>
+<div class="slide" style="background:linear-gradient(135deg,#0f52bd,#00c6ff)"><h2>🔥 FREE FIRE<br>স্পেশাল অফার</h2><p>এখনই টপ আপ করো</p><small>১০০% দ্রুত ডেলিভারি</small></div>
+<div class="slide" style="background:linear-gradient(135deg,#00a651,#a6ff00)"><h2>💎 WEEKLY<br>MEMBERSHIP</h2><p>মাত্র ১৮০ টাকায়</p><small>সেরা দামে নাও</small></div>
+</div></div>
+<div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+
+<div class="teleRow">
+<button class="teleBtn" onclick="window.open('https://t.me/')">✈️ <span><small>SUPPORT</small>Telegram</span></button>
+<button class="teleBtn" onclick="window.open('https://t.me/')">👥 <span><small>GROUP</small>Join Group</span></button>
+</div>
+
+<div class="secTitle">| BONUS <span>OFFER</span></div>
+<div class="bonusRow">
+<div class="bonusCard"><div style="background:linear-gradient(180deg,#0a2a5e,#ff6a00)">👑<br>প্রিমিয়াম<br>ইউজার</div><p>PREMIUM USER</p></div>
+<div class="bonusCard"><div style="background:linear-gradient(180deg,#ff3b30,#ff9a00)">🕌<br>শুক্রবার<br>অফার</div><p>FRIDAY OFFER</p></div>
+<div class="bonusCard"><div style="background:linear-gradient(180deg,#7b00ff,#00c6ff)">🎁<br>গিভওয়ে<br>অফার</div><p>GIVEAWAY</p></div>
+</div>
+
+<div class="secTitle">| GAMES <span>TOPUP</span></div>
+<div class="grid">
+<div class="card" onclick="selectGame('Free Fire')"><img src="freefire.jpg"><p>Free Fire</p></div>
+<div class="card" onclick="selectGame('PUBG Mobile')"><img src="pubg.jpg"><p>PUBG Mobile</p></div>
+<div class="card" onclick="selectGame('Free Fire MAX')"><img src="freefiremax.jpg"><p>Free Fire MAX</p></div>
+<div class="card" onclick="selectGame('Call of Duty')"><img src="cod.jpg"><p>Call of Duty</p></div>
+</div>
+<div class="box">
+<h3 id="gameTitle">Free Fire - Package Select</h3>
+<div class="pkgGrid" id="pkgList"></div>
+<input class="input" id="uid" placeholder="Player UID / ID Number">
+<input class="input" id="phone" placeholder="WhatsApp / bKash Number">
+<button class="btnBlue" onclick="buyNow()">Buy Now</button>
+<button class="btnGreen" onclick="buyWhatsApp()">WhatsApp Order</button>
+</div>
+</div>
+
+<div id="profilePage" class="profileWrap">
+<div class="profileCard">
+<img id="pImg" class="avatar" src="https://via.placeholder.com/150">
+<div class="profileName" id="pName">GUEST</div>
+<div style="color:#888;font-size:13px;margin-top:4px" id="pEmail">-</div>
+<div class="verified">● Verified</div>
+<div class="pinRow">🛡️ Support PIN: <b id="pPin">000000</b> &nbsp; ★ Verified Account</div>
+<div class="rankBox"><span style="font-size:30px">🛡️</span><div style="text-align:left"><b>Bronze Member</b><br><small>Level 1 / Current Rank</small></div></div>
+<div class="walletBox"><h4>Wallet Balance</h4><div class="walletBal">Tk <span id="pWallet">0</span></div><button class="addMoney" onclick="addMoney()">Add Money</button></div>
+<button class="btnBlue" onclick="logout()" style="background:#ff3b30">Logout</button>
+</div>
+</div>
+
+<div class="bottom">
+<div onclick="showHome()" id="navHome" class="active">🏠<br>Home</div>
+<div>💎<br>Top Up</div>
+<div>📦<br>Orders</div>
+<div onclick="goAccount()" id="navAcc">👤<br>My Account</div>
+</div>
+
+<div class="modal" id="loginModal">
+<div class="modalBox">
+<h2>DADY SHOP</h2>
+<p style="color:#666;margin-top:6px">Login with your Gmail</p>
+<input class="input" id="loginEmail" placeholder="Your Gmail - যেমন: efat@gmail.com">
+<button class="gBtn" onclick="doLogin()">🔵 &nbsp; Continue with Gmail</button>
+<p style="font-size:12px;color:#999;margin-top:10px" onclick="closeLogin()">Cancel</p>
+</div>
+</div>
 
 <script>
-var SEL="",PRICE="0";
-function getWallet(){return parseInt(localStorage.getItem('dady_wallet')||'0');}
-function updateWallet(){var w=getWallet();document.getElementById('walletTop').innerText=w+'৳';document.getElementById('walletMid').innerText=w+'৳';document.getElementById('walletBig').innerText=w+'৳';document.getElementById('accWallet').innerText=w+'৳';}
-function goHome(el){document.querySelectorAll('.bItem').forEach(e=>e.classList.remove('active'));el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-function openOrders(){var o=JSON.parse(localStorage.getItem('dady_orders')||'[]');var h=o.length?o.map(x=>'<div class="orderItem"><b>'+x.pkg+'</b> - '+x.price+' TK<br>UID: '+x.uid+'<br>Trx: '+x.trx+'<br>Status: ⏳ Pending</div>').join(''):'<p style="margin-top:10px;color:#888">এখনো কোনো অর্ডার নাই</p>';document.getElementById('ordersList').innerHTML=h;document.getElementById('ordersModal').classList.add('show');}
-function closeOrders(){document.getElementById('ordersModal').classList.remove('show');}
-function openCodes(){var c=JSON.parse(localStorage.getItem('dady_used_trx')||'[]');var h=c.length?c.map(x=>'<div class="orderItem">TrxID: <b>'+x+'</b></div>').join(''):'<p style="margin-top:10px;color:#888">এখনো কোনো Code নাই</p>';document.getElementById('codesList').innerHTML=h;document.getElementById('codesModal').classList.add('show');}
-function closeCodes(){document.getElementById('codesModal').classList.remove('show');}
-function openAccount(){updateWallet();var g=localStorage.getItem('dady_gmail');document.getElementById('accGmail').innerText=g?('Gmail: '+g):'Login করা নাই';document.getElementById('accountModal').classList.add('show');}
-function closeAccount(){document.getElementById('accountModal').classList.remove('show');}
-function openWallet(){document.getElementById('walletModal').classList.add('show');updateWallet();}
-function closeWallet(){document.getElementById('walletModal').classList.remove('show');}
-function isValidTrx(t){return /^[A-Z0-9]{10}$/.test(t);}
-function saveOrder(pkg,price,uid,trx){var o=JSON.parse(localStorage.getItem('dady_orders')||'[]');o.unshift({pkg:pkg,price:price,uid:uid,trx:trx});localStorage.setItem('dady_orders',JSON.stringify(o));}
-function addMoney(){
-  var a=parseInt(document.getElementById('addAmt').value);
-  var t=document.getElementById('addTrx').value.trim().toUpperCase();
-  var msg=document.getElementById('walletMsg');msg.innerText='';
-  if(!a||a<=0){msg.innerText='❌ টাকার পরিমাণ দাও';return;}
-  if(!t){msg.innerText='❌ TrxID দাও';return;}
-  if(t.length!==10){msg.innerText='❌ ভুল TrxID! TrxID ১০ অক্ষরের হয়। যেমন: 9KX7F2A1BC';return;}
-  if(!isValidTrx(t)){msg.innerText='❌ ভুল TrxID! শুধু ইংরেজি অক্ষর আর সংখ্যা দাও';return;}
-  var used=JSON.parse(localStorage.getItem('dady_used_trx')||'[]');
-  if(used.includes(t)){msg.innerText='❌ এই TrxID আগেই ব্যবহার হইছে!';return;}
-  used.push(t);localStorage.setItem('dady_used_trx',JSON.stringify(used));
-  alert('✅ TrxID ঠিক আছে! Request Admin এর কাছে গেছে। Admin bKash চেক করে Approve করলে টাকা Add হবে।');
-  window.open('https://wa.me/8801705780185?text=*Wallet Add Request*%0AAmount: '+a+' TK%0ATrxID: '+t,'_blank');
-  closeWallet();
+let packages=[{name:"100 Diamond",price:"85 ৳"},{name:"310 Diamond",price:"250 ৳"},{name:"520 Diamond",price:"410 ৳"},{name:"1060 Diamond",price:"820 ৳"},{name:"2180 Diamond",price:"1650 ৳"},{name:"Weekly Membership",price:"180 ৳"}];
+let selected=0;
+function renderPkg(){let h="";packages.forEach((p,i)=>{h+=`<div class="pkg ${i==selected?'sel':''}" onclick="pickPkg(${i})"><b>${p.name}</b><span>${p.price}</span></div>`});document.getElementById("pkgList").innerHTML=h}
+function pickPkg(i){selected=i;renderPkg()}
+function selectGame(g){document.getElementById("gameTitle").innerText=g+" - Package Select";showHome()}
+function buyNow(){let u=localStorage.getItem("dady_user");if(!u){openLogin();alert("আগে Gmail দিয়ে Login করো ভাই!");return}alert("Order: "+packages[selected].name)}
+function buyWhatsApp(){let msg="Hello DADY SHOP, I want "+packages[selected].name+" UID: "+document.getElementById("uid").value;window.open("https://wa.me/8801700000000?text="+encodeURIComponent(msg))}
+function openLogin(){document.getElementById("loginModal").style.display="flex"}
+function closeLogin(){document.getElementById("loginModal").style.display="none"}
+function doLogin(){
+let email=document.getElementById("loginEmail").value.trim().toLowerCase();
+if(!email||!email.includes("@")){alert("সঠিক Gmail দাও ভাই!");return}
+let gmailName = email.split("@")[0].replace(/[._-]/g," ").toUpperCase();
+let pin=Math.floor(100000+Math.random()*900000);
+let user={name:gmailName,email:email,pin:pin,wallet:0,img:"https://ui-avatars.com/api/?name="+encodeURIComponent(gmailName)+"&background=0f52bd&color=fff&size=200"};
+localStorage.setItem("dady_user",JSON.stringify(user));
+closeLogin();loadUser();goAccount();alert("Welcome "+gmailName+"! তোমার Support PIN: "+pin);
 }
-function close1(){document.getElementById('notice1').style.display='none';document.getElementById('notice2').style.display='flex';}
-function close2(){document.getElementById('notice2').style.display='none';}
-function showCat(id){['uid','fflike','weeklylite','weekly','level'].forEach(function(x){document.getElementById(x).classList.add('hide');});document.getElementById(id).classList.remove('hide');document.getElementById(id).scrollIntoView({behavior:'smooth'});}
-function pick(el,name,price){document.querySelectorAll('.pkg').forEach(function(e){e.classList.remove('sel');});el.classList.add('sel');SEL=name;PRICE=price;document.getElementById('selName').innerText=name;document.getElementById('selPrice').innerText=price;}
-function openLogin(){var u=localStorage.getItem('dady_gmail');if(u){if(confirm('Logout করবে? '+u)){localStorage.removeItem('dady_gmail');location.reload();}return;}document.getElementById('loginModal').classList.add('show');}
-function closeLogin(){document.getElementById('loginModal').classList.remove('show');}
-function googleLogin(){var e=prompt('আপনার Gmail লিখুন:','example@gmail.com');if(!e)return;localStorage.setItem('dady_gmail',e);document.getElementById('topBtn').innerText=e.split('@')[0];closeLogin();alert('Login Successful ✅');}
-function orderNow(){
-  var u=document.getElementById('uidInput').value;
-  var tr=document.getElementById('trxInput').value.trim().toUpperCase();
-  var m=document.getElementById('trxMsg');m.innerText='';
-  if(!SEL){alert('আগে একটা প্যাকেজে ক্লিক করো');return;}
-  if(!u){alert('UID দাও');return;}
-  var w=getWallet();
-  if(w>=parseInt(PRICE)){if(confirm('Wallet থেকে '+PRICE+' টাকা কাটবে? ব্যালেন্স: '+w+'৳')){localStorage.setItem('dady_wallet',w-parseInt(PRICE));updateWallet();saveOrder(SEL,PRICE,u,'WALLET');window.open('https://wa.me/8801705780185?text=*DADY SHOP - Wallet Order*%0APackage: '+SEL+' - '+PRICE+' TK%0AUID: '+u+'%0APayment: Wallet','_blank');return;}}
-  if(!tr){m.innerText='❌ TrxID দাও অথবা Wallet এ টাকা Add করো';return;}
-  if(tr.length!==10||!isValidTrx(tr)){m.innerText='❌ ভুল TrxID! TrxID ১০ অক্ষরের হয়। যেমন: 9KX7F2A1BC';return;}
-  var used=JSON.parse(localStorage.getItem('dady_used_trx')||'[]');
-  if(used.includes(tr)){m.innerText='❌ এই TrxID আগেই ব্যবহার হইছে!';return;}
-  used.push(tr);localStorage.setItem('dady_used_trx',JSON.stringify(used));
-  saveOrder(SEL,PRICE,u,tr);
-  window.open('https://wa.me/8801705780185?text=*DADY SHOP*%0APackage: '+SEL+' - '+PRICE+' TK%0AUID: '+u+'%0ATrxID: '+tr,'_blank');
+function loadUser(){
+let u=JSON.parse(localStorage.getItem("dady_user")||"null");
+if(u){document.getElementById("pName").innerText=u.name;document.getElementById("pEmail").innerText=u.email;document.getElementById("pPin").innerText=u.pin;document.getElementById("pWallet").innerText=u.wallet;document.getElementById("pImg").src=u.img;document.getElementById("topLogin").innerText=u.name.split(" ")[0];document.getElementById("topWallet").innerText="৳ "+u.wallet}
 }
-var saved=localStorage.getItem('dady_gmail');if(saved){document.getElementById('topBtn').innerText=saved.split('@')[0];}
-updateWallet();
-</script></body></html>
+function goAccount(){let u=localStorage.getItem("dady_user");if(!u){openLogin();return}document.getElementById("homePage").style.display="none";document.getElementById("profilePage").style.display="block";document.getElementById("navAcc").classList.add("active");document.getElementById("navHome").classList.remove("active")}
+function showHome(){document.getElementById("homePage").style.display="block";document.getElementById("profilePage").style.display="none";document.getElementById("navHome").classList.add("active");document.getElementById("navAcc").classList.remove("active")}
+function logout(){localStorage.removeItem("dady_user");location.reload()}
+function addMoney(){alert("bKash / Nagad দিয়ে Add Money করতে WhatsApp করো ভাই!")}
+let cur=0;function moveSlide(){cur=(cur+1)%3;document.getElementById("slides").style.transform=`translateX(-${cur*100}%)`;document.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("active",i==cur))}setInterval(moveSlide,3000);
+renderPkg();loadUser();
+</script>
+</body>
+  </html>
