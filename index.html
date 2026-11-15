@@ -12,29 +12,11 @@ body{background:#f1f5ff;padding-bottom:110px}
 .headRight{display:flex;align-items:center;gap:8px}
 .walletBtn{background:#0f52bd;color:#fff;border:none;padding:8px 12px;border-radius:20px;font-weight:700}
 .loginBtn{background:#0f52bd;color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:700;cursor:pointer}
+/* শুধু NOTICE থাকবে */
 .notice{background:#0f52bd;color:#fff;margin:10px 12px;border-radius:25px;display:flex;align-items:center;padding:8px 8px 8px 12px;gap:8px;font-size:13px;font-weight:700;overflow:hidden}
 .notice span{background:#fff;color:#0f52bd;padding:4px 10px;border-radius:15px;font-size:11px;white-space:nowrap}
 .notice marquee{flex:1}
-.slider{margin:10px 12px;overflow:hidden;border-radius:15px;position:relative}
-.slides{display:flex;transition:transform .5s}
-.slide{min-width:100%;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;padding:0;position:relative;overflow:hidden}
-.slide img{width:100%;height:100%;object-fit:cover}
-.slide h2{font-size:28px;line-height:1.1;text-shadow:2px 2px 0 #00000033}
-.slide p{margin-top:8px;background:#fff;color:#0f52bd;padding:6px 14px;border-radius:8px;font-weight:800;font-size:14px}
-.slide small{margin-top:6px;font-weight:700}
-.dots{display:flex;justify-content:center;gap:6px;margin-top:8px}
-.dot{width:18px;height:5px;background:#ccc;border-radius:10px}
-.dot.active{background:#000;width:28px}
-.teleRow{display:flex;gap:10px;padding:0 12px;margin-top:12px}
-.teleBtn{flex:1;background:#0f52bd;color:#fff;border:none;padding:12px;border-radius:10px;display:flex;align-items:center;gap:8px;font-weight:700;cursor:pointer}
-.teleBtn small{display:block;font-size:10px;opacity:.8}
-.secTitle{padding:16px 12px 8px;font-size:19px;font-weight:900}
-.secTitle span{color:#0f52bd}
-.bonusRow{display:flex;gap:10px;padding:0 12px;overflow-x:auto}
-.bonusCard{min-width:150px;background:#fff;border-radius:12px;overflow:hidden;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.bonusCard div{height:140px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:18px;padding:10px;text-align:center;line-height:1.3}
-.bonusCard p{padding:10px;font-size:12px;font-weight:700;color:#555}
-.top{padding:6px 12px;font-size:22px;font-weight:800}
+.top{padding:14px 12px;font-size:22px;font-weight:800}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
 .card{background:#fff;border-radius:15px;overflow:hidden;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer}
 .card img{width:100%;aspect-ratio:1/1;object-fit:cover}
@@ -74,29 +56,10 @@ body{background:#f1f5ff;padding-bottom:110px}
 </div>
 
 <div id="homePage">
+<!-- শুধু NOTICE -->
 <div class="notice"><span>● NOTICE</span><marquee>এখানে আমাদের সাইটে রাত দিন ২৪ ঘণ্টা অর্ডার করতে পারবেন। ধন্যবাদ DADY SHOP এ থাকার জন্য!</marquee><b onclick="this.parentElement.style.display='none'" style="cursor:pointer">✕</b></div>
 
-<!-- তোমার ছবি দিয়ে ব্যানার -->
-<div class="slider"><div class="slides" id="slides">
-<div class="slide"><img src="Picsart_26-11-15_19-50-37-922.png"></div>
-<div class="slide" style="background:linear-gradient(135deg,#0f52bd,#00c6ff)"><h2>🔥 FREE FIRE<br>স্পেশাল অফার</h2><p>এখনই টপ আপ করো</p><small>১০০% দ্রুত ডেলিভারি</small></div>
-<div class="slide" style="background:linear-gradient(135deg,#00a651,#a6ff00)"><h2>💎 WEEKLY<br>MEMBERSHIP</h2><p>মাত্র ১৮০ টাকায়</p><small>সেরা দামে নাও</small></div>
-</div></div>
-<div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
-
-<div class="teleRow">
-<button class="teleBtn" onclick="window.open('https://t.me/')">✈️ <span><small>SUPPORT</small>Telegram</span></button>
-<button class="teleBtn" onclick="window.open('https://t.me/')">👥 <span><small>GROUP</small>Join Group</span></button>
-</div>
-
-<div class="secTitle">| BONUS <span>OFFER</span></div>
-<div class="bonusRow">
-<div class="bonusCard"><div style="background:linear-gradient(180deg,#0a2a5e,#ff6a00)">👑<br>প্রিমিয়াম<br>ইউজার</div><p>PREMIUM USER</p></div>
-<div class="bonusCard"><div style="background:linear-gradient(180deg,#ff3b30,#ff9a00)">🕌<br>শুক্রবার<br>অফার</div><p>FRIDAY OFFER</p></div>
-<div class="bonusCard"><div style="background:linear-gradient(180deg,#7b00ff,#00c6ff)">🎁<br>গিভওয়ে<br>অফার</div><p>GIVEAWAY</p></div>
-</div>
-
-<div class="secTitle">| GAMES <span>TOPUP</span></div>
+<div class="top">Top Up Game</div>
 <div class="grid">
 <div class="card" onclick="selectGame('Free Fire')"><img src="freefire.jpg"><p>Free Fire</p></div>
 <div class="card" onclick="selectGame('PUBG Mobile')"><img src="pubg.jpg"><p>PUBG Mobile</p></div>
@@ -170,7 +133,6 @@ function goAccount(){let u=localStorage.getItem("dady_user");if(!u){openLogin();
 function showHome(){document.getElementById("homePage").style.display="block";document.getElementById("profilePage").style.display="none";document.getElementById("navHome").classList.add("active");document.getElementById("navAcc").classList.remove("active")}
 function logout(){localStorage.removeItem("dady_user");location.reload()}
 function addMoney(){alert("bKash / Nagad দিয়ে Add Money করতে WhatsApp করো ভাই!")}
-let cur=0;function moveSlide(){cur=(cur+1)%3;document.getElementById("slides").style.transform=`translateX(-${cur*100}%)`;document.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("active",i==cur))}setInterval(moveSlide,3000);
 renderPkg();loadUser();
 </script>
 </body>
